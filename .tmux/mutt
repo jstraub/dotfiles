@@ -1,0 +1,2 @@
+new-window -n mutt 'mutt'
+splitw -h -p 50 'mutt'
