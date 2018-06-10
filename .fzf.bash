@@ -11,4 +11,3 @@ fi
 # Key bindings
 # ------------
 source "$HOME/dotfiles/3rdparty/fzf/shell/key-bindings.bash"
-
