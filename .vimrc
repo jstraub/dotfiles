@@ -6,14 +6,15 @@ call vundle#begin()
 " let Vundle manage Vundle [required! ]
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'junegunn/seoul256.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/syntastic'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'junegunn/goyo.vim'
+Bundle 'vim-scripts/ag.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'junegunn/seoul256.vim'
 call vundle#end()
 filetype plugin indent on   " required!
 
