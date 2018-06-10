@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo apt install silversearcher-ag vim tmux 
+
 ######################################### bash
 cd ~
 rm ~/.bashrc
@@ -19,6 +21,8 @@ cd 3rdparty
 git clone https://github.com/junegunn/fzf.git
 cd fzf
 ./install --bin --64
+
+mkdir ~/.logs/
 
 ######################################### vim setup
 cd ~

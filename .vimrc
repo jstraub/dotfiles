@@ -17,6 +17,8 @@ Bundle 'junegunn/goyo.vim'
 call vundle#end()
 filetype plugin indent on   " required!
 
+set rtp+=~/dotfiles/3rdparty/fzf
+
 "YouCompleteMe looks into tag files
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -85,6 +87,7 @@ set pastetoggle=<F2>
 " leader key is space
 let mapleader = "\<Space>"
 " open file using fzf using " e"
+nnoremap <C-e> :FZF<CR>
 nnoremap <Leader>e :FZF<CR>
 " save to file with " w"
 nnoremap <Leader>w :w<CR>

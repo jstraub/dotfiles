@@ -84,7 +84,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # export all my commands into log files - great!
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi; /usr/bin/setxkbmap -option "caps:swapescape"'
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; echo "$(history 1 | sed "s/^ [0-9]\+  //g")" >> ~/.logs/bash-history-all.log; fi; /usr/bin/setxkbmap -option "caps:swapescape"'
 #export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi; $HOME/bin/3rdparty/tmux-gitbar/update-gitbar 2> /dev/null '
 
 export FOLDER_PRUNE='-type d -name "pod-build" -prune -o -type d -name "build" -prune -o -type d -name ".git" -prune -o'
@@ -223,4 +223,5 @@ export CUDA_PATH=/usr/local/cuda
 #alias pgrep='ps axu | grep --color=always'
 
 alias vimf='FILE=$(find -name "*pdf" -prune -o -name "*jpg" -prune -o -name "*png" -prune -o  -type d -path "*/.*" -prune -o -name "*~" -prune -o -type f -print -o -type l -print | fzf); if [ $? -eq 0 ]; then /usr/bin/vim $FILE; fi'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f ~/dotfiles/.fzf.bash ] && source ~/dotfiles/.fzf.bash
