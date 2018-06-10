@@ -6,21 +6,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    #alias pgrep='ps axu | grep --color=always'
 fi
 
-export FOLDER_PRUNE='-type d -name "pod-build" -prune -o -type d -name "build" -prune -o -type d -name ".git" -prune -o'
-export CD_FOLDER_PRUNE='-type d -path "*/.*" -prune -o -type d -name "marine" -prune -o'
-export VIM_FILE_PRUNE='-name "*png" -prune -o -name "*jpg" -prune -o -name "*~" -prune -o'
-
-#alias vimf='vim $(find $FOLDER_PRUNE $VIM_FILE_PRUNE -type f -print -o -type l -print | fzf)'
-#alias vimf='vim $(find -name "*pdf" -prune -o -name "*jpg" -prune -o  -name "*png" -prune -o  -type d -path "*/.*" -prune -o -name "*~" -prune -o -type f -print -o -type l -print | fzf)'
-
-#alias vimf='vim $(find . -name "*png" -prune -o -name "*jpg" -prune -o -name "*~" -prune -o -name pod-build -prune -o -name build -prune -o -name .git -prune -o -type f -print -o -type d -print -o -type l -print | fzf)'
-#alias vimfh='vim $(find -L ~/* -type f | fzf)'
-#alias pgrep='ps axu | grep --color=always'
-
-alias vimf='FILE=$(find -name "*pdf" -prune -o -name "*jpg" -prune -o -name "*png" -prune -o  -type d -path "*/.*" -prune -o -name "*~" -prune -o -type f -print -o -type l -print | fzf); if [ $? -eq 0 ]; then /usr/bin/vim $FILE; fi'
-
+alias vimf='FILE=$(fzf); if [ $? -eq 0 ]; then /usr/bin/vim $FILE; fi'
 
 # some more ls aliases
 alias lll='ls -alFh'
@@ -29,10 +18,7 @@ alias llt='ls -alFhtr'
 alias la='ls -A'
 alias l='ls -CF'
 alias e='vim '
-alias cdf='cd $(find . $FOLDER_PRUNE $CD_FOLDER_PRUNE -type d -print | fzf)'
-alias cdw='cd $(find -L ./workspace/* -type d | fzf)'
-alias cdp='cd $(find -L ./workspace/writing/* -type d | fzf)'
-alias cdfh='cd $(find -L ~/* -type d | fzf)'
+alias cdf='cd $(fzf)'
 
 alias lgrep='ll | grep --color=always'
 alias pp='ps axu | grep'

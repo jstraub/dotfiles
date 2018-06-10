@@ -1,5 +1,6 @@
 
 export PATH=$HOME/bin:$PATH:/usr/local/cuda/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/usr/bin/vim
 export IPYTHONDIR=$HOME/.ipython
 export WORKSPACE_HOME=$HOME/workspace

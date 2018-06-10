@@ -1,4 +1,5 @@
 *~
+*.swp
 .netrwhist
 .vim/bundle/
 3rdparty

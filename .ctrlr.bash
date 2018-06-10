@@ -4,6 +4,10 @@ export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:
 # source .fzf 
 [ -f ~/dotfiles/.fzf.bash ] && source ~/dotfiles/.fzf.bash
 
+# use fd instead of find
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # overwrite the __fzf_history__() function to use my logging system
 __fzf_history__() (
   local line

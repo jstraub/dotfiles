@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-sudo apt install silversearcher-ag vim tmux 
+sudo apt install silversearcher-ag vim tmux cargo cmake 
+if [ ! -e ~/dotfiles/3rdparty ]; then
+  mkdir ~/dotfiles/3rdparty
+fi
+mkdir ~/.logs/
 
 ######################################### bash
 cd ~
@@ -14,15 +18,28 @@ rm ~/.tmux
 ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux ~/
 
-######################################### fzf
-cd ~/dotfiles
-mkdir 3rdparty
-cd 3rdparty
-git clone https://github.com/junegunn/fzf.git
-cd fzf
-./install --bin --64
+######################################### fd (find replacement)
 
-mkdir ~/.logs/
+if [ ! -e ~/dotfiles/3rdparty/fd ]; then
+  cd ~/dotfiles/3rdparty
+  git clone https://github.com/sharkdp/fd.git
+else
+  cd ~/dotfiles/3rdparty/fd
+  git pull
+fi
+cd ~/dotfiles/3rdparty/fd
+cargo install
+
+######################################### fzf
+if [ ! -e ~/dotfiles/3rdparty/fzf ]; then
+  cd ~/dotfiles/3rdparty
+  git clone https://github.com/junegunn/fzf.git
+else
+  cd ~/dotfiles/3rdparty/fzf
+  git pull
+fi 
+cd ~/dotfiles/3rdparty/fzf
+./install --bin --64
 
 ######################################### vim setup
 cd ~
