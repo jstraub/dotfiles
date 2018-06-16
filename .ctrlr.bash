@@ -13,7 +13,7 @@ __fzf_history__() (
   local line
   shopt -u nocaseglob nocasematch
   line=$(
-    HISTTIMEFORMAT= ~/dotfiles/history.py |
+    HISTTIMEFORMAT=  awk '{print NR " " $0}' ~/.logs/bash-history-all.log |
     FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m" $(__fzfcmd) |
     command grep '^ *[0-9]') &&
     sed 's/^ *\([0-9]*\)\** *//' <<< "$line"
