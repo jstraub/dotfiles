@@ -1,0 +1,7 @@
+widgets
+	network
+		 git clone git@github.com:plotnikovanton/net_widgets.git ~/.config/awesome/net_widgets
+	blingbling - cool displays
+		git clone git://github.com/cedlemo/blingbling.git
+		need urxvt
+			sudo apt-get install rxvt-unicode-256color
