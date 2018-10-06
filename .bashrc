@@ -88,6 +88,9 @@ set -o vi
 if [ -f  ~/dotfiles/.alias.bash ]; then
     . ~/dotfiles/.alias.bash
 fi
+if [ -f  ~/.alias.bash ]; then
+    . ~/.alias.bash
+fi
 # paths
 if [ -f  ~/dotfiles/.path.bash ]; then
     . ~/dotfiles/.path.bash

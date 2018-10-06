@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install silversearcher-ag vim tmux cargo cmake 
+sudo dnf install silversearcher-ag vim tmux cargo
 if [ ! -e ~/dotfiles/3rdparty ]; then
   mkdir ~/dotfiles/3rdparty
 fi
@@ -12,6 +12,17 @@ rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/
 
 ######################################### tmux setup
+
+if [ ! -e ~/dotfiles/3rdparty/tmuxinator ]; then
+  cd ~/dotfiles/3rdparty
+  git clone https://github.com/tmuxinator/tmuxinator.git
+else
+  cd ~/dotfiles/3rdparty/tmuxinator
+  git pull
+fi
+cd ~/dotfiles/3rdparty/tmuxinator
+sudo gem install tmuxinator
+
 cd ~
 rm ~/.tmux.conf
 rm ~/.tmux
@@ -48,6 +59,7 @@ rm ~/.vim
 ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.vim ~/
 # bundle
+mkdir ~/.vim/bundle/
 cd ~/.vim/bundle/
 if [ -e Vundle.vim ]; then
   cd Vundle.vim
