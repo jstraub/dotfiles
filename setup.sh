@@ -1,10 +1,25 @@
 #!/usr/bin/env bash
 
-sudo dnf install silversearcher-ag vim tmux cargo
+sudo dnf install silversearcher-ag vim tmux
+sudo apt install silversearcher-ag vim tmux cmake 
+curl https://sh.rustup.rs -sSf | sh
+
 if [ ! -e ~/dotfiles/3rdparty ]; then
   mkdir ~/dotfiles/3rdparty
 fi
 mkdir ~/.logs/
+
+######################################### alacritty
+if [ ! -e ~/dotfiles/3rdparty/alacritty ]; then
+  cd ~/dotfiles/3rdparty
+  git clone https://github.com/jwilm/alacritty.git
+else
+  cd ~/dotfiles/3rdparty/alacritty
+  git pull
+fi 
+cd ~/dotfiles/3rdparty/alacritty
+cargo install cargo-deb
+cargo deb --install
 
 ######################################### bash
 cd ~
@@ -40,6 +55,7 @@ else
 fi
 cd ~/dotfiles/3rdparty/fd
 cargo install
+
 
 ######################################### fzf
 if [ ! -e ~/dotfiles/3rdparty/fzf ]; then
